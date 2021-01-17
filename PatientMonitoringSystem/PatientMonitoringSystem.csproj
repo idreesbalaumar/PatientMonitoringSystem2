@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{943D4EC1-D7CC-4B1C-89BC-8C882F7C99C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PatientMonitoringSystem</RootNamespace>
+    <AssemblyName>PatientMonitoringSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dasboardTabPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dasboardTabPanel.Designer.cs">
+      <DependentUpon>dasboardTabPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="deviceDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="deviceDetailsUserControl.Designer.cs">
+      <DependentUpon>deviceDetailsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="doctorsDetailUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="doctorsDetailUserControl.Designer.cs">
+      <DependentUpon>doctorsDetailUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageDevicesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="manageDevicesUserControl.Designer.cs">
+      <DependentUpon>manageDevicesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageDoctorsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="manageDoctorsUserControl.Designer.cs">
+      <DependentUpon>manageDoctorsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manageNursesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="manageNursesUserControl.Designer.cs">
+      <DependentUpon>manageNursesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="managePatientsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="managePatientsUserControl.Designer.cs">
+      <DependentUpon>managePatientsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nurseDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="nurseDetailsUserControl.Designer.cs">
+      <DependentUpon>nurseDetailsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="patientDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="patientDetailsUserControl.Designer.cs">
+      <DependentUpon>patientDetailsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="reportsUserControl.Designer.cs">
+      <DependentUpon>reportsUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="dasboardTabPanel.resx">
+      <DependentUpon>dasboardTabPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deviceDetailsUserControl.resx">
+      <DependentUpon>deviceDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="doctorsDetailUserControl.resx">
+      <DependentUpon>doctorsDetailUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageDevicesUserControl.resx">
+      <DependentUpon>manageDevicesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageDoctorsUserControl.resx">
+      <DependentUpon>manageDoctorsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageNursesUserControl.resx">
+      <DependentUpon>manageNursesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="managePatientsUserControl.resx">
+      <DependentUpon>managePatientsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nurseDetailsUserControl.resx">
+      <DependentUpon>nurseDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="patientDetailsUserControl.resx">
+      <DependentUpon>patientDetailsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="reportsUserControl.resx">
+      <DependentUpon>reportsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-splash-screan-img2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\368-3682543_data-security-icon-emblem-clipart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-img8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-dash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-dev.png.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-410-461751.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-nurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-pateint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-dev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-dev1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ti-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ti-lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-logut1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-logut2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-patirnts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-nurses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-dev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-rec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-pi-time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heartbeat-care-love-heart-life-save-treatment-6-29881.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HypertensionIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\be06308bc7a18f65606c92852047db26-temperature-icon-celcius-by-vexels.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\450px-Line-style-icons-map-pin.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telephone-icon-grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-suites2013-email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\myProfilePic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuration_dashboard-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Puritan-Bennett-840-Ventilator.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-dev11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online-medical-assistance-illustration_74855-4447.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mother-child-visiting-doctor_1262-19839.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hospital-scene-with-sick-patient-bed-white-background_1308-42296.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mother-child-visiting-doctor_1262-198391.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\city-hospital-building_74855-6301.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-pateint1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctors-visit-treating-patient_37895-279.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\body-hospital-morgue-flat-color-illustration_151150-2984.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctors-concept-illustration_114360-1515.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pms-ni-doc1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\docreport.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chefs-cooks-waiters-working-restaurant-kitchen_74855-6992.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activedoc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inactiveestaf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tired-employee-exhausted-with-work_74855-4820.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
