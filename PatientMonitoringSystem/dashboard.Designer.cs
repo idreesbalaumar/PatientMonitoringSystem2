@@ -42,6 +42,7 @@ namespace PatientMonitoringSystem
             this.dashbordLogoText = new System.Windows.Forms.Label();
             this.dashboardLogo = new System.Windows.Forms.PictureBox();
             this.dashboardPanel = new System.Windows.Forms.Panel();
+            this.dashTabPanel = new System.Windows.Forms.Panel();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -52,25 +53,27 @@ namespace PatientMonitoringSystem
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.footerStatusLabel = new System.Windows.Forms.Label();
             this.CopyRightLabel = new System.Windows.Forms.Label();
-            this.dashTabPanel = new System.Windows.Forms.Panel();
-            this.reportsUserControl1 = new PatientMonitoringSystem.reportsUserControl();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pmsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pmsDataSet = new PatientMonitoringSystem.pmsDataSet();
+            this.patientTableAdapter = new PatientMonitoringSystem.pmsDataSetTableAdapters.patientTableAdapter();
             this.manageDevicesUserControl1 = new PatientMonitoringSystem.manageDevicesUserControl();
-            this.manageDevicesUserControl2 = new PatientMonitoringSystem.manageDevicesUserControl();
-            this.nurseDetailsUserControl1 = new PatientMonitoringSystem.nurseDetailsUserControl();
             this.manageNursesUserControl1 = new PatientMonitoringSystem.manageNursesUserControl();
-            this.doctorsDetailUserControl1 = new PatientMonitoringSystem.doctorsDetailUserControl();
-            this.manageDoctorsUserControl1 = new PatientMonitoringSystem.manageDoctorsUserControl();
-            this.patientDetailsUserControl1 = new PatientMonitoringSystem.patientDetailsUserControl();
-            this.managePatientsUserControl1 = new PatientMonitoringSystem.managePatientsUserControl();
+            this.manageDoctorsUserControl2 = new PatientMonitoringSystem.manageDoctorsUserControl();
             this.dasboardTabPanel1 = new PatientMonitoringSystem.dasboardTabPanel();
+            this.manageDoctorsUserControl1 = new PatientMonitoringSystem.manageDoctorsUserControl();
+            this.managePatientsUserControl1 = new PatientMonitoringSystem.managePatientsUserControl();
             this.sidePanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardLogo)).BeginInit();
             this.dashboardPanel.SuspendLayout();
+            this.dashTabPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navIcon)).BeginInit();
-            this.dashTabPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmsDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel
@@ -108,6 +111,7 @@ namespace PatientMonitoringSystem
             this.settingsButton.Text = "               Settings";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Visible = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // reportsButton
@@ -128,6 +132,7 @@ namespace PatientMonitoringSystem
             this.reportsButton.Text = "               Reports";
             this.reportsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportsButton.UseVisualStyleBackColor = false;
+            this.reportsButton.Visible = false;
             this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
             // 
             // devicesButton
@@ -277,6 +282,20 @@ namespace PatientMonitoringSystem
             this.dashboardPanel.Size = new System.Drawing.Size(1176, 629);
             this.dashboardPanel.TabIndex = 2;
             // 
+            // dashTabPanel
+            // 
+            this.dashTabPanel.BackColor = System.Drawing.Color.White;
+            this.dashTabPanel.Controls.Add(this.manageDevicesUserControl1);
+            this.dashTabPanel.Controls.Add(this.manageNursesUserControl1);
+            this.dashTabPanel.Controls.Add(this.manageDoctorsUserControl2);
+            this.dashTabPanel.Controls.Add(this.dasboardTabPanel1);
+            this.dashTabPanel.Controls.Add(this.manageDoctorsUserControl1);
+            this.dashTabPanel.Controls.Add(this.managePatientsUserControl1);
+            this.dashTabPanel.Location = new System.Drawing.Point(236, 66);
+            this.dashTabPanel.Name = "dashTabPanel";
+            this.dashTabPanel.Size = new System.Drawing.Size(937, 554);
+            this.dashTabPanel.TabIndex = 17;
+            // 
             // progressBar1
             // 
             this.progressBar1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -400,110 +419,71 @@ namespace PatientMonitoringSystem
             this.CopyRightLabel.ForeColor = System.Drawing.Color.White;
             this.CopyRightLabel.Location = new System.Drawing.Point(491, 670);
             this.CopyRightLabel.Name = "CopyRightLabel";
-            this.CopyRightLabel.Size = new System.Drawing.Size(176, 16);
+            this.CopyRightLabel.Size = new System.Drawing.Size(0, 16);
             this.CopyRightLabel.TabIndex = 18;
-            this.CopyRightLabel.Text = "COPYRIGHT (R) A&I DESIGN 2021";
             this.CopyRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dashTabPanel
+            // patientBindingSource
             // 
-            this.dashTabPanel.BackColor = System.Drawing.Color.White;
-            this.dashTabPanel.Controls.Add(this.dasboardTabPanel1);
-            this.dashTabPanel.Controls.Add(this.managePatientsUserControl1);
-            this.dashTabPanel.Controls.Add(this.patientDetailsUserControl1);
-            this.dashTabPanel.Controls.Add(this.manageDoctorsUserControl1);
-            this.dashTabPanel.Controls.Add(this.doctorsDetailUserControl1);
-            this.dashTabPanel.Controls.Add(this.manageNursesUserControl1);
-            this.dashTabPanel.Controls.Add(this.nurseDetailsUserControl1);
-            this.dashTabPanel.Controls.Add(this.manageDevicesUserControl2);
-            this.dashTabPanel.Controls.Add(this.manageDevicesUserControl1);
-            this.dashTabPanel.Controls.Add(this.reportsUserControl1);
-            this.dashTabPanel.Location = new System.Drawing.Point(250, 79);
-            this.dashTabPanel.Name = "dashTabPanel";
-            this.dashTabPanel.Size = new System.Drawing.Size(908, 530);
-            this.dashTabPanel.TabIndex = 17;
+            this.patientBindingSource.DataMember = "patient";
+            this.patientBindingSource.DataSource = this.pmsDataSetBindingSource;
             // 
-            // reportsUserControl1
+            // pmsDataSetBindingSource
             // 
-            this.reportsUserControl1.BackColor = System.Drawing.Color.White;
-            this.reportsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.reportsUserControl1.Name = "reportsUserControl1";
-            this.reportsUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.reportsUserControl1.TabIndex = 0;
+            this.pmsDataSetBindingSource.DataSource = this.pmsDataSet;
+            this.pmsDataSetBindingSource.Position = 0;
+            // 
+            // pmsDataSet
+            // 
+            this.pmsDataSet.DataSetName = "pmsDataSet";
+            this.pmsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
             // 
             // manageDevicesUserControl1
             // 
-            this.manageDevicesUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manageDevicesUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.manageDevicesUserControl1.Location = new System.Drawing.Point(1, 4);
             this.manageDevicesUserControl1.Name = "manageDevicesUserControl1";
             this.manageDevicesUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.manageDevicesUserControl1.TabIndex = 1;
-            // 
-            // manageDevicesUserControl2
-            // 
-            this.manageDevicesUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manageDevicesUserControl2.Location = new System.Drawing.Point(0, 0);
-            this.manageDevicesUserControl2.Name = "manageDevicesUserControl2";
-            this.manageDevicesUserControl2.Size = new System.Drawing.Size(908, 530);
-            this.manageDevicesUserControl2.TabIndex = 2;
-            // 
-            // nurseDetailsUserControl1
-            // 
-            this.nurseDetailsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nurseDetailsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.nurseDetailsUserControl1.Name = "nurseDetailsUserControl1";
-            this.nurseDetailsUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.nurseDetailsUserControl1.TabIndex = 3;
+            this.manageDevicesUserControl1.TabIndex = 6;
             // 
             // manageNursesUserControl1
             // 
-            this.manageNursesUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manageNursesUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.manageNursesUserControl1.Location = new System.Drawing.Point(0, 4);
             this.manageNursesUserControl1.Name = "manageNursesUserControl1";
             this.manageNursesUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.manageNursesUserControl1.TabIndex = 4;
+            this.manageNursesUserControl1.TabIndex = 5;
             // 
-            // doctorsDetailUserControl1
+            // manageDoctorsUserControl2
             // 
-            this.doctorsDetailUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.doctorsDetailUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.doctorsDetailUserControl1.Name = "doctorsDetailUserControl1";
-            this.doctorsDetailUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.doctorsDetailUserControl1.TabIndex = 5;
-            // 
-            // manageDoctorsUserControl1
-            // 
-            this.manageDoctorsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manageDoctorsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.manageDoctorsUserControl1.Name = "manageDoctorsUserControl1";
-            this.manageDoctorsUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.manageDoctorsUserControl1.TabIndex = 6;
-            // 
-            // patientDetailsUserControl1
-            // 
-            this.patientDetailsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.patientDetailsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.patientDetailsUserControl1.Name = "patientDetailsUserControl1";
-            this.patientDetailsUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.patientDetailsUserControl1.TabIndex = 7;
-            // 
-            // managePatientsUserControl1
-            // 
-            this.managePatientsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.managePatientsUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.managePatientsUserControl1.Name = "managePatientsUserControl1";
-            this.managePatientsUserControl1.Size = new System.Drawing.Size(908, 530);
-            this.managePatientsUserControl1.TabIndex = 8;
+            this.manageDoctorsUserControl2.Location = new System.Drawing.Point(1, 4);
+            this.manageDoctorsUserControl2.Name = "manageDoctorsUserControl2";
+            this.manageDoctorsUserControl2.Size = new System.Drawing.Size(908, 530);
+            this.manageDoctorsUserControl2.TabIndex = 4;
             // 
             // dasboardTabPanel1
             // 
             this.dasboardTabPanel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.dasboardTabPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dasboardTabPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dasboardTabPanel1.Location = new System.Drawing.Point(1, 0);
             this.dasboardTabPanel1.Name = "dasboardTabPanel1";
             this.dasboardTabPanel1.Size = new System.Drawing.Size(908, 530);
-            this.dasboardTabPanel1.TabIndex = 9;
+            this.dasboardTabPanel1.TabIndex = 3;
+            // 
+            // manageDoctorsUserControl1
+            // 
+            this.manageDoctorsUserControl1.Location = new System.Drawing.Point(3, 0);
+            this.manageDoctorsUserControl1.Name = "manageDoctorsUserControl1";
+            this.manageDoctorsUserControl1.Size = new System.Drawing.Size(908, 530);
+            this.manageDoctorsUserControl1.TabIndex = 2;
+            // 
+            // managePatientsUserControl1
+            // 
+            this.managePatientsUserControl1.Location = new System.Drawing.Point(1, 0);
+            this.managePatientsUserControl1.Name = "managePatientsUserControl1";
+            this.managePatientsUserControl1.Size = new System.Drawing.Size(921, 551);
+            this.managePatientsUserControl1.TabIndex = 1;
             // 
             // dashboard
             // 
@@ -526,11 +506,14 @@ namespace PatientMonitoringSystem
             this.logoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardLogo)).EndInit();
             this.dashboardPanel.ResumeLayout(false);
+            this.dashTabPanel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navIcon)).EndInit();
-            this.dashTabPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmsDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,16 +543,16 @@ namespace PatientMonitoringSystem
         private System.Windows.Forms.PictureBox navIcon;
         private System.Windows.Forms.Label navHeaderLebel;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private pmsDataSet pmsDataSet;
         private System.Windows.Forms.Panel dashTabPanel;
-        private dasboardTabPanel dasboardTabPanel1;
+        private System.Windows.Forms.BindingSource pmsDataSetBindingSource;
+        private System.Windows.Forms.BindingSource patientBindingSource;
+        private pmsDataSetTableAdapters.patientTableAdapter patientTableAdapter;
         private managePatientsUserControl managePatientsUserControl1;
-        private patientDetailsUserControl patientDetailsUserControl1;
         private manageDoctorsUserControl manageDoctorsUserControl1;
-        private doctorsDetailUserControl doctorsDetailUserControl1;
+        private dasboardTabPanel dasboardTabPanel1;
+        private manageDoctorsUserControl manageDoctorsUserControl2;
         private manageNursesUserControl manageNursesUserControl1;
-        private nurseDetailsUserControl nurseDetailsUserControl1;
-        private manageDevicesUserControl manageDevicesUserControl2;
         private manageDevicesUserControl manageDevicesUserControl1;
-        private reportsUserControl reportsUserControl1;
     }
 }

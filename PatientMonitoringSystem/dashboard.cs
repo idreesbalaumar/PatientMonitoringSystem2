@@ -14,6 +14,11 @@ namespace PatientMonitoringSystem
     public partial class dashboard : Form
     {
         static dashboard _obj;
+        int totalPatients = 0;
+        int totalDoctors = 0;
+        int totalNurses = 0;
+        int totalDevices = 0;
+        Database db;
 
         public static dashboard Instance
         {
@@ -54,6 +59,19 @@ namespace PatientMonitoringSystem
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+            db = Database.Instance;
+
+            try
+            {
+                this.patientTableAdapter.FillBy(this.pmsDataSet.patient);
+
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         private void logoPanel_Paint(object sender, PaintEventArgs e)
@@ -146,57 +164,28 @@ namespace PatientMonitoringSystem
 
         private void dashboardButton_Click_1(object sender, EventArgs e)
         {
-            //dasboardTabPanel1.Controls.Clear();
-            managePatientsUserControl1.Visible = false;
-            dasboardTabPanel1.Visible = true;
-            dasboardTabPanel uc = new dasboardTabPanel();
-            uc.Show();
-            //loadModule();
-            navIcon.Image = Properties.Resources.pms_ni_dash;
-            navHeaderLebel.Text = "Dashboard";
-            //dasboardTabPanel.Visible = false;
-
-           /* _obj = this;
-            dasboardTabPanel uc = new dasboardTabPanel();
-            uc.Dock = DockStyle.Fill;
-            dashTabPanel.Controls.Add(uc);*/
-
-
-
+            SetActivePanel(dasboardTabPanel1, "Dashboard", Properties.Resources.pms_ni_dash);
         }
 
         private void patientButton_Click(object sender, EventArgs e)
         {
-            //dasboardTabPanel1.Controls.Clear();
-            managePatientsUserControl1.Visible = true;
-            //dasboardTabPanel.Visible = false;
-            //loadModule();
-            navIcon.Image = Properties.Resources.pms_ni_pateint;
-            navHeaderLebel.Text = "Patients";
-
-            
-
+            SetActivePanel(managePatientsUserControl1, "Patients", Properties.Resources.pms_ni_pateint);
         }
 
         private void doctorsButton_Click_1(object sender, EventArgs e)
         {
-            //loadModule();
-            navIcon.Image = Properties.Resources.pms_ni_doc;
-            navHeaderLebel.Text = "Doctors";
+            SetActivePanel(manageDoctorsUserControl1, "Doctors", Properties.Resources.pms_ni_doc);
         }
 
         private void nursesButton_Click(object sender, EventArgs e)
         {
-            //loadModule();
-            navIcon.Image = Properties.Resources.pms_ni_nurse;
-            navHeaderLebel.Text = "Nurses";
+            SetActivePanel(manageNursesUserControl1, "Nurses", Properties.Resources.pms_ni_nurse);
+
         }
 
         private void devicesButton_Click(object sender, EventArgs e)
         {
-            //loadModule();
-            navIcon.Image = Properties.Resources.pms_ni_dev1;
-            navHeaderLebel.Text = "Devices";
+            SetActivePanel(manageDevicesUserControl1, "Devices", Properties.Resources.pms_ni_dev1);
         }
 
         private void reportsButton_Click(object sender, EventArgs e)
@@ -217,7 +206,7 @@ namespace PatientMonitoringSystem
         {
             login lf = new login();
             lf.Show();
-            this.Hide();
+            Hide();
         }
 
         private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
@@ -242,10 +231,30 @@ namespace PatientMonitoringSystem
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-            _obj = this;
-            dasboardTabPanel uc = new dasboardTabPanel();
-            uc.Dock = DockStyle.Fill;
-            dashTabPanel.Controls.Add(uc);
+            dashTabPanel.Controls.Clear();
+            DisplayStats();
+            dasboardTabPanel1.Dock = DockStyle.Fill;
+            dashTabPanel.Controls.Add(dasboardTabPanel1);
+        }
+
+
+        private void DisplayStats()
+        {
+            totalPatients = db.GetPatientCount();
+            totalDoctors = db.GetDoctorCount();
+            totalNurses = db.GetDeviceCount();
+            totalDevices = db.GetNurseCount();
+            dasboardTabPanel1.SetStatValues((totalPatients, totalDoctors, totalNurses, totalDevices));
+        }
+
+        private void SetActivePanel(Control panel, string title, Image resource)
+        {
+            navIcon.Image = resource;
+            navHeaderLebel.Text = title;
+
+            dashTabPanel.Controls.Clear();
+            panel.Dock = DockStyle.Fill;
+            dashTabPanel.Controls.Add(panel);
         }
     }
 }

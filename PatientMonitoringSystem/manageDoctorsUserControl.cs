@@ -16,5 +16,23 @@ namespace PatientMonitoringSystem
         {
             InitializeComponent();
         }
+
+        private void manageDoctorsUserControl_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                doctorTableAdapter.FillBy(pmsDataSet.doctor);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void AddPatientbutton_Click(object sender, EventArgs e)
+        {
+            doctorTableAdapter.Update(pmsDataSet.doctor);
+            MessageBox.Show("Record saved");
+        }
     }
 }

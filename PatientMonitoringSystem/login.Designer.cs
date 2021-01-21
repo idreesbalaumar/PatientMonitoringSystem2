@@ -31,8 +31,8 @@ namespace PatientMonitoringSystem
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.pwTextBox = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -66,32 +66,32 @@ namespace PatientMonitoringSystem
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // usernameTextBox
+            // txtUsername
             // 
-            this.usernameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.usernameTextBox.Location = new System.Drawing.Point(503, 223);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(225, 16);
-            this.usernameTextBox.TabIndex = 2;
-            this.usernameTextBox.TabStop = false;
-            this.usernameTextBox.Text = "Username";
+            this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsername.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.Color.Gray;
+            this.txtUsername.Location = new System.Drawing.Point(503, 223);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(225, 16);
+            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabStop = false;
+            this.txtUsername.Text = "Username";
             // 
-            // pwTextBox
+            // txtPassword
             // 
-            this.pwTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.pwTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pwTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.pwTextBox.Location = new System.Drawing.Point(503, 276);
-            this.pwTextBox.Name = "pwTextBox";
-            this.pwTextBox.Size = new System.Drawing.Size(225, 16);
-            this.pwTextBox.TabIndex = 3;
-            this.pwTextBox.TabStop = false;
-            this.pwTextBox.Text = "Password";
-            this.pwTextBox.UseSystemPasswordChar = true;
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.Gray;
+            this.txtPassword.Location = new System.Drawing.Point(503, 276);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(225, 16);
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabStop = false;
+            this.txtPassword.Text = "Password";
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox3
             // 
@@ -167,8 +167,8 @@ namespace PatientMonitoringSystem
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pwTextBox);
-            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
@@ -189,8 +189,8 @@ namespace PatientMonitoringSystem
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.TextBox pwTextBox;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox4;

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +59,7 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="deviceDetailsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +120,11 @@
     <Compile Include="patientDetailsUserControl.Designer.cs">
       <DependentUpon>patientDetailsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="pmsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pmsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportsUserControl.cs">
@@ -175,6 +182,17 @@
     <EmbeddedResource Include="reportsUserControl.resx">
       <DependentUpon>reportsUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="pmsDataSet.xsc">
+      <DependentUpon>pmsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="pmsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pmsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pmsDataSet.xss">
+      <DependentUpon>pmsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -367,6 +385,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tired-employee-exhausted-with-work_74855-4820.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pms.accdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

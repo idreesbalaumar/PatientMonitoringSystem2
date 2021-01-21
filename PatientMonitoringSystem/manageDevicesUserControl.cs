@@ -16,5 +16,36 @@ namespace PatientMonitoringSystem
         {
             InitializeComponent();
         }
+
+        private void manageDevicesUserControl_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                deviceTableAdapter.Fill(pmsDataSet.device);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void AddPatientbutton_Click(object sender, EventArgs e)
+        {
+            deviceTableAdapter.Update(pmsDataSet.device);
+            MessageBox.Show("Record saved");
+        }
+
+        private void fillToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.deviceTableAdapter.Fill(this.pmsDataSet.device);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
